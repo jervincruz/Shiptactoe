@@ -12,20 +12,23 @@ class ViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
     
-    var currentPlayer = 1 // Player 1 = X
+    // Game Variables
+    var currentPlayer = 1 // Player 1 = X, Player 2 = O
     var board : [Int] = [-1,-1,-1,-1,-1,-1,-1,-1,-1]
-    let combos : [[Int]] = [ [0,3,6], [1,4,7], [2,5,8], [0,1,2], [3,4,5], [6,7,8], [0,4,8], [2,4,6] ]
-    
+    let combos : [[Int]] = [ [0,3,6], [1,4,7], [2,5,8], [0,1,2], [3,4,5], [6,7,8], [0,4,8], [2,4,6] ] // Winning Combo
+    var moves = 0
+
+    // UIAlert
     let alertTitle : String = "W I N N E R"
     let drawTitle : String = "D R A W"
     let message1 = "Player 1 wins!"
     let message2 = "Player 2 wins!"
-    var moves = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // Triggered Every Player Move
     @IBAction func moveMade(_ sender: UIButton) {
         
         let tag = sender.tag - 1
@@ -53,7 +56,7 @@ class ViewController: UIViewController {
                     winAlert.addAction(action1)
                     self.present(winAlert, animated: true, completion: nil)
                     
-                } else {
+                } else { // Player 2 wins (O)
                     let winAlert = UIAlertController(title: alertTitle, message: message2, preferredStyle: .alert)
                     let action2 = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
                         self.newGame((Any).self)
@@ -79,18 +82,17 @@ class ViewController: UIViewController {
         print(board)
     }
     
-    
+    // Reset Board
     @IBAction func newGame(_ sender: Any) {
         for button in buttons {
             button.isUserInteractionEnabled = true
             button.setImage(nil, for: .normal)
         }
         
-        // Reset All Variables
+        // Reset Variables
         board = [-1,-1,-1,-1,-1,-1,-1,-1,-1]
         currentPlayer = 1
         moves = 0
     }
     
 }
-
