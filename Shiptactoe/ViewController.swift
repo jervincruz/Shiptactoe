@@ -25,6 +25,7 @@ class ViewController: UIViewController {
 //                                    7 : [ [1,4], [6,8]],
 //                                    8 : [ [0,4], [2,5], [6,7]]]
     let alertTitle : String = "W I N N E R"
+    let drawTitle : String = "D R A W"
     let message1 = "Player 1 wins!"
     let message2 = "Player 2 wins!"
     var moves = 0
@@ -74,8 +75,13 @@ class ViewController: UIViewController {
         sender.isUserInteractionEnabled = false
         moves += 1
         
-        if moves == 8 {
-            print("DRAW!")
+        if moves == 9 {
+            let drawAlert = UIAlertController(title: drawTitle, message: "A head to head matchup. Well done.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
+                self.newGame((Any).self)
+            }
+            drawAlert.addAction(action1)
+            self.present(drawAlert, animated: true, completion: nil)
         }
         
         print(board)
@@ -88,52 +94,6 @@ class ViewController: UIViewController {
             button.setImage(nil, for: .normal)
         }
     }
-    
-    
-    
-//
-//    func checkWin(_ tag : Int, player : Int){
-//
-//        func checkValues(_ tag : Int, _ player : Int){
-//            let values = combos[tag]
-//            for value in values! {
-//                print("Value: ", value)
-//                innerLoop: for (i, index) in value.enumerated() {
-//                    print("i: ", i, "index: ", index)
-//                    guard board[index] == player else {
-//                        break innerLoop
-//                    }
-//                    print("Inner Array: ", i)
-//                    if i == 1 {
-//                        print("Player: ", player, "has won!")
-//                    }
-//                }
-//            }
-//        }
-//
-//        switch tag {
-//        case 1:
-//            checkValues(0, player)
-//        case 2:
-//            checkValues(1, player)
-//        case 3:
-//            checkValues(2, player)
-//        case 4:
-//            checkValues(3, player)
-//        case 5:
-//            checkValues(4, player)
-//        case 6:
-//            checkValues(5, player)
-//        case 7:
-//            checkValues(6, player)
-//        case 8:
-//            checkValues(7, player)
-//        case 9:
-//            checkValues(8, player)
-//        default:
-//            return
-//        }
-//    }
     
 }
 
