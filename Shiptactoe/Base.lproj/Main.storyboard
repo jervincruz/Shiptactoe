@@ -311,7 +311,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="f9e-Z6-gXj">
                                         <rect key="frame" x="0.0" y="214" width="323" height="99"/>
                                         <subviews>
-                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foP-bf-zbI" userLabel="9">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foP-bf-zbI" userLabel="9">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="99"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="99" id="nGy-9n-Rpn"/>
@@ -339,7 +339,7 @@
                                                     <action selector="moveMade:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yBZ-nq-deG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="7" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqQ-M1-Sd0" userLabel="7">
+                                            <button opaque="NO" tag="9" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqQ-M1-Sd0" userLabel="7">
                                                 <rect key="frame" x="223" y="0.0" width="100" height="99"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="99" id="YEd-Ii-cSL"/>
@@ -365,7 +365,7 @@
                                 <rect key="frame" x="0.0" y="404" width="320" height="73"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-F6-Gh2">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="30"/>
+                                        <rect key="frame" x="0.5" y="21.5" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.090108789503574371" green="0.086925677955150604" blue="0.028101572766900063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="KhG-Zm-dmV"/>
