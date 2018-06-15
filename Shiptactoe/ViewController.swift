@@ -42,7 +42,7 @@ class ViewController: UIViewController {
             currentPlayer = 1
         }
     
-        // Solution
+        // Solution: Constantly compare if board has one of the winning combinations
         for combo in combos {
             if board[combo[0]] != -1 // Not Empty Board
             && board[combo[0]] == board[combo[1]] // 1st matches 2nd spot
@@ -50,18 +50,18 @@ class ViewController: UIViewController {
                 
                 if board[combo[0]] == 1 { // Player 1 wins (X)
                     let winAlert = UIAlertController(title: alertTitle, message: message1, preferredStyle: .alert)
-                    let action1 = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
+                    let action = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
                         self.newGame((Any).self)
                     }
-                    winAlert.addAction(action1)
+                    winAlert.addAction(action)
                     self.present(winAlert, animated: true, completion: nil)
                     
                 } else { // Player 2 wins (O)
                     let winAlert = UIAlertController(title: alertTitle, message: message2, preferredStyle: .alert)
-                    let action2 = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
+                    let action = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
                         self.newGame((Any).self)
                     }
-                    winAlert.addAction(action2)
+                    winAlert.addAction(action)
                     self.present(winAlert, animated: true, completion: nil)
                 }
             }
@@ -71,15 +71,22 @@ class ViewController: UIViewController {
         sender.isUserInteractionEnabled = false
         moves += 1
         
-        if moves == 9 {
+        // If ninth move and no one won, a draw was forced
+        guard moves != 9 else {
+            draw()
+            return
+        }
+        print(board)
+    }
+    
+    // Players Forced a Draw
+    func draw(){
             let drawAlert = UIAlertController(title: drawTitle, message: "A head to head matchup. Well done.", preferredStyle: .alert)
             let action1 = UIAlertAction(title: "New Game", style: .default) { (action: UIAlertAction) in
                 self.newGame((Any).self)
             }
             drawAlert.addAction(action1)
             self.present(drawAlert, animated: true, completion: nil)
-        }
-        print(board)
     }
     
     // Reset Board
